@@ -15,14 +15,6 @@ class TaskScreen extends StatelessWidget {
         backgroundColor: primary,
         title: const Row(
           children: [
-            // CircleAvatar(
-            //   radius: 15,
-            //   backgroundColor: Colors.white,
-            //   child: Icon(
-            //     Icons.check,
-            //     size: 20,
-            //   ),
-            // ),
             SizedBox(
               width: 10,
             ),
@@ -50,7 +42,7 @@ class TaskScreen extends StatelessWidget {
             },
             itemCount: taskProvider.tasks.length);
       }),
-      floatingActionButton: const CustomFAB(),
+      floatingActionButton: const AddTaskButton(),
     );
   }
 }
@@ -76,8 +68,8 @@ class TaskWidget extends StatelessWidget {
   }
 }
 
-class CustomFAB extends StatelessWidget {
-  const CustomFAB({
+class AddTaskButton extends StatelessWidget {
+  const AddTaskButton({
     super.key,
   });
 
@@ -107,18 +99,20 @@ class CustomDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double sh = MediaQuery.sizeOf(context).height;
-    double sw = MediaQuery.sizeOf(context).width;
+
+    double screenHeight = MediaQuery.sizeOf(context).height;
+    double screenWidth = MediaQuery.sizeOf(context).width;
+
     final taskProvider = Provider.of<TaskViewmodel>(context, listen: false);
     return Dialog(
       backgroundColor: secondary,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(23)),
       child: SizedBox(
-        height: sh * 0.5,
-        width: sw * 0.8,
+        height: screenHeight * 0.5,
+        width: screenWidth * 0.8,
         child: Padding(
           padding:
-              EdgeInsets.symmetric(horizontal: sw * 0.05, vertical: sh * 0.02),
+              EdgeInsets.symmetric(horizontal: screenWidth * 0.05, vertical: screenHeight * 0.02),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

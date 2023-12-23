@@ -4,15 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:taskproviderv1/model/taskmodel.dart';
 
 class TaskViewmodel extends ChangeNotifier {
-  
+
   List<Task> tasks = [];
 
   String? taskName;
   final dateCont = TextEditingController();
   final timeCont = TextEditingController();
 
-  bool get isValid =>
-      taskName != null && dateCont.text.isNotEmpty && timeCont.text.isNotEmpty;
+  bool get isValid => taskName != null && dateCont.text.isNotEmpty && timeCont.text.isNotEmpty;
 
   setTaskName(String? value) {
     taskName = value;
