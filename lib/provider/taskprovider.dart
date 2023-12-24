@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:taskproviderv1/model/taskmodel.dart';
@@ -15,7 +14,6 @@ class TaskViewmodel extends ChangeNotifier {
 
   setTaskName(String? value) {
     taskName = value;
-    log(value.toString());
     notifyListeners();
   }
 
@@ -23,7 +21,6 @@ class TaskViewmodel extends ChangeNotifier {
     if (date == null) {
       return;
     }
-    log(date.toString());
 
     DateTime currentDate = DateTime.now();
     DateTime now =
@@ -43,7 +40,6 @@ class TaskViewmodel extends ChangeNotifier {
   }
 
   settime(TimeOfDay? time) {
-    log(time.toString());
     if (time == null) {
       return;
     }
@@ -66,12 +62,16 @@ class TaskViewmodel extends ChangeNotifier {
       return;
     }
 
-    final task = Task(taskName!, dateCont.text, timeCont.text);
+    final task = Task(taskName!, dateCont.text, timeCont.text);    
     tasks.add(task);
     timeCont.clear();
     dateCont.clear();
-    log(tasks.length.toString());
 
+    notifyListeners();
+  }
+
+  void updateTodo(Task todo, String name,) {
+    todo.taskName = name ;
     notifyListeners();
   }
 }
