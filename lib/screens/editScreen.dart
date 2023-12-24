@@ -15,12 +15,12 @@ class EditScreen extends StatefulWidget {
 
 class _EditScreenState extends State<EditScreen> {
 
-    var textController;
+    late TextEditingController textController;
 
 
     @override
     void initState() {
-      textController = widget.note.taskName;
+      textController = TextEditingController(text: widget.note.taskName);
       super.initState(); 
 
     }
