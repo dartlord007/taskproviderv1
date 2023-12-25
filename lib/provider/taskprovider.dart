@@ -70,6 +70,11 @@ class TaskViewmodel extends ChangeNotifier {
     notifyListeners();
   }
 
+  void removeTodo(Task todo) {
+    tasks.remove(todo);
+    notifyListeners();
+  }
+
   void updateTodo(Task todo, String name,) {
     todo.taskName = name ;
     notifyListeners();

@@ -71,8 +71,14 @@ class TaskWidget extends StatelessWidget {
         "${task.date}, ${task.time}",
         style: const TextStyle(color: textBlue),
       ),
+      trailing: IconButton(onPressed: (){return deleteTodo(context,task );}, icon: const Icon(Icons.delete),),
     );
   }
+}
+
+void deleteTodo(BuildContext context, Task todo) {
+    final provider = Provider.of<TaskViewmodel>(context, listen: false);
+    provider.removeTodo(todo);
 }
 
 class AddTaskButton extends StatelessWidget {
